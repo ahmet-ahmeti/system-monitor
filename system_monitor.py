@@ -2,10 +2,19 @@ import psutil
 import time
 import os
 
+#to check for os cause you need different file path depending on os
+if os.name == "nt":
+    disk_path = "C:\\"
+elif os.name == "posix":
+    if os.uname().sysname == "Darwin":
+        disk_path = "/System/Volumes/Data"
+    elif os.uname().sysname == "Linux":
+        disk_path = "/"
+
 #just to make a loop that never ends so it always checks for changes
 while True: 
 
-    os.system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
 
     processes = []
 
@@ -19,9 +28,8 @@ while True:
     #adds the processes that are not None to this lists then sorts it form most usage to least from the key also only adds the top 5        
     top5 = sorted([prog for prog in processes if prog["cpu_percent"] is not None], key=lambda x: x["cpu_percent"], reverse=True)[:5] 
 
-    #checks usage of the disk on that path or directory /System/Volumes/Data is where youll find APFS(Apple's file system)
-    #which has a seperate container from the normal path
-    disk = psutil.disk_usage('/System/Volumes/Data') 
+
+    disk = psutil.disk_usage(disk_path) 
 
     #cheks the cpu usage for 1 sec then returns a precentage
     cpu = psutil.cpu_percent(interval=1) 
