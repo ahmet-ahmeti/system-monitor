@@ -10,9 +10,16 @@ A terminal system monitor made using Python and psutil
 
 ## How to run
 
-> Done on macOS. Linux/Windows users use `pip3 install psutil` no need for flag.
+> Done on macOS. Linux users use `pip3 install psutil` no need for flag.
 
 ```bash
 pip3 install psutil --break-system-packages
 python3 system_monitor.py
+```
+
+> As for Windows:
+
+```bash
+pip install psutil
+python system_monitor.py
 ```
