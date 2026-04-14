@@ -25,8 +25,8 @@ while True:
         except psutil.NoSuchProcess:
             pass
 
-    #adds the processes that are not None to this lists then sorts it form most usage to least from the key also only adds the top 5        
-    top5 = sorted([prog for prog in processes if prog["cpu_percent"] is not None], key=lambda x: x["cpu_percent"], reverse=True)[:5] 
+    #removing programs that are using None % and the System Idle Process for Windows         
+    top5 = sorted([prog for prog in processes if prog["cpu_percent"] is not None and prog["name"] != "System Idle Process"], key=lambda x: x["cpu_percent"], reverse=True)[:5] 
 
 
     disk = psutil.disk_usage(disk_path) 
