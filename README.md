@@ -1,6 +1,6 @@
 # System Monitor
 
-A terminal system monitor made using Python and psutil
+A desktop system monitor built with Python, psutil, and Tkinter
 
 ## Shows:
 - CPU usage
