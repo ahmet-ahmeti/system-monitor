@@ -6,7 +6,7 @@ window = Tk()
 
 window.title("System Monitor")
 
-window.config(background="#303030")
+window.config(background="#09071A")
 
 # Baseline call so the first cpu_percent() reading isn't 0.0
 psutil.cpu_percent(interval=None)
@@ -20,30 +20,36 @@ elif os.name == "posix":
     elif os.uname().sysname == "Linux":
         disk_path = "/"
 
+# cursor name differs per OS
+mouse = "pointinghand" if os.name == "posix" and os.uname().sysname == "Darwin" else "hand2"
+
+# different font for different OS
+font_f = "Monaco" if os.name == "posix" and os.uname().sysname == "Darwin" else "Consolas"
+
 def on_enter(e):
-    e.widget.config(background="#505050")
+    e.widget.config(background="#151424")
 
 
 def on_leave(e):
-    e.widget.config(background="#303030")
+    e.widget.config(background="#09071A")
 
 
-cpu_label = Label(window, text="CPU: ", font=("Monaco", 30), background="#303030", cursor="pointinghand", width=32, height="2")
+cpu_label = Label(window, text="CPU: ", font=(font_f, 30), background="#09071A", cursor=mouse, width=32, height="2")
 cpu_label.bind("<Enter>", on_enter)
 cpu_label.bind("<Leave>", on_leave)
 cpu_label.pack(padx=40, pady=15)
 
-ram_label = Label(window, text="RAM: ", font=("Monaco", 30), background="#303030", cursor="pointinghand", width=32, height="2")
+ram_label = Label(window, text="RAM: ", font=(font_f, 30), background="#09071A", cursor=mouse, width=32, height="2")
 ram_label.bind("<Enter>", on_enter)
 ram_label.bind("<Leave>", on_leave)
 ram_label.pack(padx=40, pady=2)
 
-disk_label = Label(window, text="DISK: ", font=("Monaco", 30), background="#303030", cursor="pointinghand", width=32, height="2")
+disk_label = Label(window, text="DISK: ", font=(font_f, 30), background="#09071A", cursor=mouse, width=32, height="2")
 disk_label.bind("<Enter>", on_enter)
 disk_label.bind("<Leave>", on_leave)
 disk_label.pack(padx=40, pady=2)
 
-top_5_label = Label(window, text="", font=("Monaco", 25), background="#303030", cursor="pointinghand", justify="left", width=35, height=8)
+top_5_label = Label(window, text="", font=(font_f, 25), background="#09071A", cursor=mouse, justify="left", width=35, height=8)
 top_5_label.bind("<Enter>", on_enter)
 top_5_label.bind("<Leave>", on_leave)
 top_5_label.pack(pady=15)
