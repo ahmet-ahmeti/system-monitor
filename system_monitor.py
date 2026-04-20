@@ -34,22 +34,22 @@ def on_leave(e):
     e.widget.config(background="#09071A")
 
 
-cpu_label = Label(window, text="CPU: ", font=(font_f, 30), background="#09071A", cursor=mouse, width=32, height="2")
+cpu_label = Label(window, text="CPU: ", font=(font_f, 30), foreground="white", background="#09071A", cursor=mouse, width=32, height="2")
 cpu_label.bind("<Enter>", on_enter)
 cpu_label.bind("<Leave>", on_leave)
 cpu_label.pack(padx=40, pady=15)
 
-ram_label = Label(window, text="RAM: ", font=(font_f, 30), background="#09071A", cursor=mouse, width=32, height="2")
+ram_label = Label(window, text="RAM: ", font=(font_f, 30), foreground="white", background="#09071A", cursor=mouse, width=32, height="2")
 ram_label.bind("<Enter>", on_enter)
 ram_label.bind("<Leave>", on_leave)
 ram_label.pack(padx=40, pady=2)
 
-disk_label = Label(window, text="DISK: ", font=(font_f, 30), background="#09071A", cursor=mouse, width=32, height="2")
+disk_label = Label(window, text="DISK: ", font=(font_f, 30), foreground="white", background="#09071A", cursor=mouse, width=32, height="2")
 disk_label.bind("<Enter>", on_enter)
 disk_label.bind("<Leave>", on_leave)
 disk_label.pack(padx=40, pady=2)
 
-top_5_label = Label(window, text="", font=(font_f, 25), background="#09071A", cursor=mouse, justify="left", width=35, height=8)
+top_5_label = Label(window, text="", font=(font_f, 25), foreground="white", background="#09071A", cursor=mouse, justify="left", width=35, height=8)
 top_5_label.bind("<Enter>", on_enter)
 top_5_label.bind("<Leave>", on_leave)
 top_5_label.pack(pady=15)
